@@ -30,7 +30,14 @@ Your bidding strategy must ensure that your **total payment** over all rounds do
 The objective is to **maximize total value across 10,000 rounds**, while **satisfying the ROI constraint**.  
 > _Note: this objective is distinct from traditional utility maximization._
 
-In each round, your strategy receives a private value drawn independently from the uniform distribution on $[0, 1]$. You also receive a full history of the previous $i - 1$ rounds at the beginning of round $i$, including value, bid, payment, and allocation. This history may help you **infer the auction mode**, which could improve your strategy’s performance.
+In each round, your strategy observes a private value for that round. Your private value and your opponent’s are generated as
+$$x_i + y_i$$
+and
+$$x_i + z_i,$$
+respectively, where $$x_i, y_i, z_i$$ are drawn independently from the uniform distribution on $$[0,1].$$  
+**Thus, the two private values are correlated through the shared component $$x_i$$.**
+
+At the beginning of round $$i,$$ you also observe the full history of the previous $$i-1$$ rounds, including values, bids, payments, and allocations. This history may allow you to **infer the auction mode**, potentially improving your strategy’s performance.
 
 You can safely assume that your **payment is always less than or equal to your bid**, regardless of the auction mode.
 
