@@ -18,9 +18,10 @@ def gen_context():
     valueArr1 = []
     valueArr2 = []
     for i in range(NUM_ROUNDS):
-        v1 = random.uniform(0,1)
+        v0 = random.uniform(0,1)
+        v1 = v0 + random.uniform(0,1)
         valueArr1.append(v1)
-        v2 = random.uniform(0,1)
+        v2 = v0 + random.uniform(0,1)
         valueArr2.append(v2)  
 
     for i in range(NUM_ROUNDS):
@@ -68,9 +69,9 @@ def runRound(pair, auction):
         contextItem = contextJson[turn]
         v1 = contextItem["v1"]
         v2 = contextItem["v2"]
-        
-        v1 = random.random()
-        v2 = random.random()
+        v0 = random.uniform(0,1)
+        v1 = v0 + random.uniform(0,1)
+        v2 = v0 + random.uniform(0,1)
         bid1 = moduleA.strategy(v1, totalScore1, totalPayment1, ROI1, history1)
         bid2 = moduleB.strategy(v2, totalScore2, totalPayment2, ROI2, history2)
         bid1 = max(bid1, 0)
