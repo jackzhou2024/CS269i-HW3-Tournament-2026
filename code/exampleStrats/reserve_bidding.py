@@ -29,7 +29,7 @@ def update_pacing_factor(totalValue, totalPayment,  ROI):
         ratio = totalValue / totalPayment 
     r += EPS * (ROI + 0.1 - ratio)
     r = max(0, r)
-    r = min(1, r)
+    r = min(2, r)
 
 
 def strategy(value, totalValue, totalPayment, ROI, myHistory):
